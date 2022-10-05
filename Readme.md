@@ -1,10 +1,15 @@
 # Mime
-A C++ library for Windows for MIME. Easily portable to other platforms. Uses AdES (https://github.com/WindowsNT/AdES) for signing if needed.
+A C++ library for MIME. 
+This is fork of the original library at (https://github.com/WindowsNT/mime)
 
-## Getting Started
+## Build example with gcc
+```
+g++ -Werror -Wall -g main.cpp -o mime
+```
 
-Description, examples etc at CodeProject: https://www.codeproject.com/Articles/1114232/Cplusplus-MIME-A-simple-single-header-parser-an
-git clone url
-git submodule init
-git submodule update
+## What is different
 
+- Removed Win32 specific calls.
+- Removed Windows build files. The library is just the header.
+- Removed AdES
+- Removed Decoding (too many Win32 calls) and not needed for the project at hand

@@ -1,0 +1,95 @@
+Content-Type: multipart/related;
+ type="application/mbms-envelope+xml";
+ boundary="Mm1BGL.XNf8Hbmu10dm0s5S'M10uqcHBLYBDymPI.QLsj16RfzwVN.1wYoZfpzS816L6-h"
+
+--Mm1BGL.XNf8Hbmu10dm0s5S'M10uqcHBLYBDymPI.QLsj16RfzwVN.1wYoZfpzS816L6-h
+Content-Type: application/mbms-envelope+xml
+Content-Location: envelope.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<metadataEnvelope xmlns="urn:3gpp:metadata:2005:MBMS:envelope">
+   <item metadataURI="mpd.xml" version="161" contentType="application/dash+xml"/>
+   <item metadataURI="stsid.xml" version="108" contentType="application/route-s-tsid+xml"/>
+   <item metadataURI="usbd.xml" version="2" contentType="application/route-usd+xml"/>
+</metadataEnvelope>
+
+--Mm1BGL.XNf8Hbmu10dm0s5S'M10uqcHBLYBDymPI.QLsj16RfzwVN.1wYoZfpzS816L6-h
+Content-Type: application/dash+xml
+Content-Location: mpd.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MPD availabilityStartTime="2022-05-19T18:00:16Z" maxSegmentDuration="PT2.002S" minBufferTime="PT2S" minimumUpdatePeriod="PT1M0S" profiles="urn:mpeg:dash:profile:isoff-broadcast:2015" publishTime="2022-05-20T11:52:04Z" timeShiftBufferDepth="PT12S" type="dynamic" xmlns="urn:mpeg:dash:schema:mpd:2011" xmlns:cenc="urn:mpeg:cenc:2013" xmlns:dashif="https://dashif.org/" xmlns:scte35="http://www.scte.org/schemas/35/2016" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="urn:mpeg:dash:schema:mpd:2011 DASH-MPD.xsd http://dashif.org/guidelines/ContentProtection laurl.xsd">
+   <Period id="P0" start="PT0S">
+      <AdaptationSet contentType="video" id="0" maxFrameRate="60000/1001" maxHeight="540" maxWidth="960" mimeType="video/mp4" minFrameRate="60000/1001" minHeight="540" minWidth="960" par="16:9" segmentAlignment="true" startWithSAP="1">
+         <Role schemeIdUri="urn:mpeg:dash:role:2011" value="main"/>
+         <SegmentTemplate duration="120120" initialization="video-$Bandwidth$-init.mp4" media="video-$Bandwidth$-$Number$.mp4v" startNumber="825665943" timescale="60000"/>
+         <Representation bandwidth="2500000" codecs="hvc1.2.4.L123.B0" frameRate="60000/1001" height="540" id="Video1_1" sar="1:1" scanType="progressive" width="960"/>
+      </AdaptationSet>
+      <AdaptationSet contentType="audio" id="1" mimeType="audio/mp4" segmentAlignment="true" startWithSAP="1">
+         <SegmentTemplate duration="480480" initialization="audio-0-$Bandwidth$-init.mp4" media="audio-0-$Bandwidth$-$Number$.mp4a" startNumber="825665943" timescale="240000"/>
+         <AudioChannelConfiguration schemeIdUri="urn:mpeg:mpegB:cicp:ChannelConfiguration" value="2"/>
+         <Representation audioSamplingRate="48000" bandwidth="768000" codecs="ac-4.02.01.00" id="Audio2_2"/>
+      </AdaptationSet>
+   </Period>
+</MPD>
+
+--Mm1BGL.XNf8Hbmu10dm0s5S'M10uqcHBLYBDymPI.QLsj16RfzwVN.1wYoZfpzS816L6-h
+Content-Type: application/route-s-tsid+xml
+Content-Location: stsid.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<S-TSID xmlns="tag:atsc.org,2016:XMLSchemas/ATSC3/Delivery/S-TSID/1.0/" xmlns:afdt="tag:atsc.org,2016:XMLSchemas/ATSC3/Delivery/ATSC-FDT/1.0/" xmlns:fdt="urn:ietf:params:xml:ns:fdt">
+   <RS sIpAddr="192.168.1.57" dIpAddr="239.255.10.1" dPort="49152">
+      <LS tsi="3000" bw="2750000" startTime="2022-05-19T16:12:07Z">
+         <SrcFlow rt="true">
+            <EFDT>
+               <FDT-Instance Expires="4294967295"
+                             afdt:efdtVersion="0"
+                             afdt:fileTemplate="video-2500000-$TOI$.mp4v">
+                  <fdt:File TOI="4294967295" Content-Location="video-2500000-init.mp4"/>
+               </FDT-Instance>
+            </EFDT>
+            <ContentInfo>
+              <MediaInfo repId="Video1_1" contentType="video"/>
+            </ContentInfo>
+            <Payload codePoint="128" formatId="1" frag="0" order="true"/>
+         </SrcFlow>
+      </LS>
+      <LS tsi="3001" bw="845000" startTime="2022-05-19T16:12:07Z">
+         <SrcFlow rt="true">
+            <EFDT>
+               <FDT-Instance Expires="4294967295"
+                             afdt:efdtVersion="0"
+                             afdt:fileTemplate="audio-0-768000-$TOI$.mp4a">
+                  <fdt:File TOI="4294967295" Content-Location="audio-0-768000-init.mp4"/>
+               </FDT-Instance>
+            </EFDT>
+            <ContentInfo>
+              <MediaInfo repId="Audio2_2" contentType="audio"/>
+            </ContentInfo>
+            <Payload codePoint="128" formatId="1" frag="0" order="true"/>
+         </SrcFlow>
+      </LS>
+   </RS>
+</S-TSID>
+
+--Mm1BGL.XNf8Hbmu10dm0s5S'M10uqcHBLYBDymPI.QLsj16RfzwVN.1wYoZfpzS816L6-h
+Content-Type: application/route-usd+xml
+Content-Location: usbd.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<BundleDescriptionROUTE xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="tag:atsc.org,2016:XMLSchemas/ATSC3/Delivery/ROUTEUSD/1.0/" xmlns:routeusd="http://www.atsc.org/XMLSchemas/ATSC3/Delivery/ROUTEUSD/1.0/" xsi:schemaLocation="http://www.atsc.org/XMLSchemas/ATSC3/Delivery/ROUTEUSD/1.0/ ROUTEUSD.xsd">
+   <UserServiceDescription serviceId="1">
+      <Name lang="en">
+         Service 1
+      </Name>
+      <DeliveryMethod>
+         <BroadcastAppService>
+            <BasePattern>video-2500000-</BasePattern>
+            <BasePattern>audio-0-768000-</BasePattern>
+         </BroadcastAppService>
+      </DeliveryMethod>
+   </UserServiceDescription>
+</BundleDescriptionROUTE>
+
+--Mm1BGL.XNf8Hbmu10dm0s5S'M10uqcHBLYBDymPI.QLsj16RfzwVN.1wYoZfpzS816L6-h--
