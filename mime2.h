@@ -3,8 +3,8 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include <string.h>
-
+#include <cstring>
+#include <ctime>
 
 namespace MIME2
 {
@@ -455,6 +455,7 @@ namespace MIME2
 
     uint32_t rand32()
     {
+        srand(time(0));
         return ((rand() & 0x3) << 30) | ((rand() & 0x7fff) << 15) | (rand() & 0x7fff);
     }
 
